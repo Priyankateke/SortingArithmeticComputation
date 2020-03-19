@@ -21,3 +21,26 @@ for(( i=0;i<TOTAL_EXPRESSION;i++))
 do
 	eval resultArray[$i]=${expressionsResult[expression$((i+1))_result]}
 done
+
+function getResultInOrder()
+{
+	len=${#resultArray[@]}
+	sign=$1
+	for((i=0;i<len;i++))
+	do
+		for((j=$i+1;j<len;j++))
+		do
+			if(( ${resultArray[i]%.*} $sign ${resultArray[$j]%.*} ))
+			then
+				temp=${resultArray[j]}
+				resultArray[j]=${resultArray[i]}
+				resultArray[i]=$temp
+			fi
+		done
+	done
+}
+
+#Calling Function with DESC Variable
+getResultInOrder '>'
+
+echo "Expressions result in Array After Descending Sort " ${resultArray[@]}
