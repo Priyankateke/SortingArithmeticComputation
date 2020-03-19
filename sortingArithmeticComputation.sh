@@ -6,3 +6,4 @@ read -p "Enter Three Numbers : " a b c
 expression1_result=$(echo "scale=2; $a+$b*$c" | bc )
 expression2_result=$(echo "scale=2; $a*$b+$c" | bc )
 expression3_result=$(echo "scale=2; $c+$a/$b" | bc )
+expression4_result=$(($a%$b+$c))
