@@ -41,6 +41,9 @@ function getResultInOrder()
 }
 
 #Calling Function with DESC Variable
-getResultInOrder '>'
-
+getResultInOrder '<'
 echo "Expressions result in Array After Descending Sort " ${resultArray[@]}
+
+#Calling Function with ASCE Variable
+getResultInOrder '>'
+echo "Expressions result in Array After Ascending Sort " ${resultArray[@]}
